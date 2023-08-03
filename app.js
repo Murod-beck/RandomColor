@@ -26,6 +26,15 @@ function gereneteRandomColor() {
   return "#" + color;
 }
 
+function copyColors(text) {
+  return navigator.clipboard.writeText(text);
+}
+cols.forEach((col) => {
+  col.addEventListener("click", (e) => {
+    copyColors(e.target.textContent);
+  });
+});
+
 function setRandomColors() {
   cols.forEach((col) => {
     const isLock = col.querySelector("i").textContent === "lock";
